@@ -1,1 +1,6 @@
-Project description ...
+This folder contains .ipynb program to predict monthly sales of TokoLitik project. Yet, it's still under development. I plan to do the following in the next commit:
+- This program still stuck in improving the accuracy and minimize the loss.  
+- Hasn't predicted anything and haven't put dummy data for bahan produk yet. However, I'll try my best to complete it tonight
+- Predict for at least 3 to 6 next monthly sales
+- Convert this program to TensorflowJS
+- Export model with the aim of deploying in the cloud
