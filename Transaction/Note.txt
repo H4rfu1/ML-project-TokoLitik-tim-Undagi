@@ -3,6 +3,6 @@
 	(b) Run lstm_model.ipynb program to export the model
 	(c) Run predict.ipynb program to predict next 6 monthly sales
 
-3. I plan to do the following in the next commit:
+2. I plan to do the following in the next commit:
 - Predict for at least 3 to 6 next monthly sales (outside the test set)
 - Convert this program into TensorflowJS
