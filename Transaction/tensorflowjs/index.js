@@ -30,7 +30,9 @@ function LSTM_Model() {
   return new Promise((resolve, reject) => {
     preprocessedData((successResponse) => {
         resolve(successResponse);
-        model.getModel(successResponse)
+        // console.log()
+        model.getModel()
+        // model.trainModel(successResponse)
       },
       (errorResponse) => {
         reject(errorResponse);
