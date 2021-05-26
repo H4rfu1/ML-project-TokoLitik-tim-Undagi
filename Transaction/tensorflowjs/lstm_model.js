@@ -1,6 +1,5 @@
 const moment = require("moment");
 const MinMaxScaler = require("minmaxscaler")
-const tf = require('@tensorflow/tfjs');
 // const tf = require('@tensorflow/tfjs-node');
 // const { model } = require("@tensorflow/tfjs-node");
 
@@ -55,15 +54,15 @@ function dataTransformation(data) {
 
 
 function getModel(){
-  const model = tf.sequential()
-  model.add(tf.layers.bidirectional(tf.layers.lstm({units: 100, activation:"relu", returnSequences:true, inputShape:(6,1)})))
-  model.add(tf.layers.lstm({units:100, activation:"relu"}))
-  model.add(tf.layers.dense({units:6}))
+  // const model = tf.sequential()
+  // model.add(tf.layers.bidirectional(tf.layers.lstm({units: 100, activation:"relu", returnSequences:true, inputShape:(6,1)})))
+  // model.add(tf.layers.lstm({units:100, activation:"relu"}))
+  // model.add(tf.layers.dense({units:6}))
 
-  model.compile({optimizer:"adam", loss:"mse"})
+  // model.compile({optimizer:"adam", loss:"mse"})
 
-  console.log("get model called")
-  return model
+  console.log("model called")
+  // return model
 }
 
 function trainModel(data){
