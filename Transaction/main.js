@@ -20,7 +20,7 @@ function prepareData(url, token, successCallback, errorCallback) {
   });
 }
 
-function modelPredict(url, token) {
+function modelPredict(id, url, token) {
   return new Promise((resolve, reject) => {
     prepareData(
       url,
@@ -28,8 +28,9 @@ function modelPredict(url, token) {
       (auth_status) => {
         resolve(auth_status);
         if (auth_status == 200) {
-          const modelData = spawn("python", ["model_predict.py"]);
+          const modelData = spawn("python", ["model_predict.py", id]);
           modelData.stdout.on("data", (data) => {
+            console.log(`${data}`)
             return;
           });
 
@@ -55,4 +56,4 @@ let productId = 1;
 const token =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTYyMjE3Mzg5NCwiZXhwIjoxNjIyMjYwMjk0fQ.2uOInISldLxYy5Ao8RhICYoCfgATgkn3T2y8QbZreSs";
 const URL = `http://tokolitik.tech:3000/api/users/stores/products/${productId}/transactions/`;
-modelPredict(URL, token);
+modelPredict(productId, URL, token);
