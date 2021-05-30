@@ -52,8 +52,8 @@ function modelPredict(id, url, token) {
   });
 }
 
-let productId = 1;
+let productId = 2;
 const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTYyMjE3Mzg5NCwiZXhwIjoxNjIyMjYwMjk0fQ.2uOInISldLxYy5Ao8RhICYoCfgATgkn3T2y8QbZreSs";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTYyMjMzNzYyMiwiZXhwIjoxNjIyNDI0MDIyfQ.TNAyQ-AnGQGgdBIKbl274BEJiYXDKyM_cIO4BnL5UG0";
 const URL = `http://tokolitik.tech:3000/api/users/stores/products/${productId}/transactions/`;
 modelPredict(productId, URL, token);

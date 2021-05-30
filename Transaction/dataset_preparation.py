@@ -24,18 +24,18 @@ def getData(dir):
         data.append(temp)
 
     jsonString = json.dumps(data)
-    jsonFile = open("{}/data.json".format(dir), "w")
+    jsonFile = open("{}\\data.json".format(dir), "w")
     jsonFile.write(jsonString)
     jsonFile.close()
 
     jsonString = json.dumps(product)
-    jsonFile = open("{}/product.json".format(dir), "w")
+    jsonFile = open("{}\\product.json".format(dir), "w")
     jsonFile.write(jsonString)
     jsonFile.close()
 
 def saveData():    
-    dataset_ROOT = "D:/TokoLitik/dataset"
-    dataset_DIR = "{}/productId_{}".format(dataset_ROOT, product["id"])
+    dataset_ROOT = os.getcwd()+"\\result"
+    dataset_DIR = "{}\\productId_{}".format(dataset_ROOT, product["id"])
 
     isRootExist = os.path.isdir(dataset_ROOT)
     isDirectoryExist = os.path.isdir(dataset_DIR)
