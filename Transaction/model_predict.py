@@ -15,12 +15,12 @@ from sklearn.preprocessing import MinMaxScaler
 
 # 1 ----- IMPORT DATASET ----- #
 productId = str(sys.argv[1])
-dataset_DIR = 'D:/TokoLitik/dataset/productId_{}'.format(productId)
+dataset_DIR = os.getcwd()+"\\result"+"\\"+'productId_{}'.format(productId)
 
-df = pd.read_json('{}/data.json'.format(dataset_DIR))
+df = pd.read_json('{}\\data.json'.format(dataset_DIR))
 df["date"] = df["date"].dt.date
 
-productFile = open("{}/product.json".format(dataset_DIR))
+productFile = open("{}\\product.json".format(dataset_DIR))
 product = json.load(productFile)
 
 # 2 ----- FEATURES PREPARATION ----- #
@@ -262,34 +262,43 @@ ax.legend(loc="upper left")
 # 10 -- SAVE PREDICTED DATA AS IMAGE -- #
 
 storeId = product["storeId"]
-result_ROOT1 = "D:/TokoLitik/result"
-result_ROOT2 = "{}/{}".format(result_ROOT1, storeId)
-result_dir = "{}/{}".format(result_ROOT2, productId)
-pred_image_path = "{}/next_6_months.png".format(result_dir)
+#result_ROOT1 = os.getcwd()
+#result_ROOT2 = "{}\\{}".format(result_ROOT1, storeId)
+#result_dir = "{}\\{}".format(result_ROOT2, productId)
+dataset_ROOT = os.getcwd()+"\\result"
+result_dir = "{}\\productId_{}".format(dataset_ROOT, productId)
 
-isRoot1Exist = os.path.isdir(result_ROOT1)
-isRoot2Exist = os.path.isdir(result_ROOT2)
-isDirExist = os.path.isdir(result_dir)
+pred_image_path = "{}\\next_6_months.png".format(result_dir)
+
+#isRoot1Exist = os.path.isdir(result_ROOT1)
+#isRoot2Exist = os.path.isdir(result_ROOT2)
+#isDirExist = os.path.isdir(result_dir)
 isPredImgExist = os.path.exists(pred_image_path)
 
-if(isRoot1Exist):
-    if(isRoot2Exist):
-        if(isDirExist):
-            if(isPredImgExist):
-                os.remove(pred_image_path)
-            plt.savefig(pred_image_path)
-        else:
-            os.mkdir(result_dir)
-            plt.savefig(pred_image_path)
-    else:
-        os.mkdir(result_ROOT2)
-        os.mkdir(result_dir)
-        plt.savefig(pred_image_path)
+if(isPredImgExist):
+	os.remove(pred_image_path)
+	plt.savefig(pred_image_path)
 else:
-    os.mkdir(result_ROOT1)
-    os.mkdir(result_ROOT2)
-    os.mkdir(result_dir)
-    plt.savefig(pred_image_path)
+	plt.savefig(pred_image_path)
+
+#if(isRoot1Exist):
+#    if(isRoot2Exist):
+#        if(isDirExist):
+#            if(isPredImgExist):
+#                os.remove(pred_image_path)
+#            plt.savefig(pred_image_path)
+#        else:
+#            os.mkdir(result_dir)
+#            plt.savefig(pred_image_path)
+#    else:
+#        os.mkdir(result_ROOT2)
+#        os.mkdir(result_dir)
+#        plt.savefig(pred_image_path)
+#else:
+#    os.mkdir(result_ROOT1)
+#    os.mkdir(result_ROOT2)
+#    os.mkdir(result_dir)
+#    plt.savefig(pred_image_path)
 
 
 # 11 -- MERGE DATASET WITH PREDICTED DATA -- #
@@ -344,8 +353,8 @@ for i in get_pred_months:
 
 # 13 ------ Save Json and Image Files ----- #
 
-image_path = "{}/start_next_6_months.png".format(result_dir)
-composition_path = "{}/compositions_pred.json".format(result_dir)
+image_path = "{}\\start_next_6_months.png".format(result_dir)
+composition_path = "{}\\compositions_pred.json".format(result_dir)
 
 isImgPathExist = os.path.exists(image_path)
 isCompoPathExist = os.path.exists(composition_path)
