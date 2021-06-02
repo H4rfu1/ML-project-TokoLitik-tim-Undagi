@@ -1,1 +1,16 @@
-Project description ...
+collecting data:
+
+cleaning data:
+
+build model:
+
+deploy model:
+
+- ML review : 	make dataset product reviews at Tokopedia with crawl technology
+		Cleaning dataset with remove non-alpabhet character, missing values, and duplicates
+		Manually labeling the dataset to class negative, positive or neutral
+		Make a list of misleading/typo word from the dataset
+		preprocessing data with the list of misleading/typo word  and balancing class dataset
+		building model with TensorFlow on Colab
+		make saved model and convert to TFJS saved model
+		build prediction algorithm using tensorflowjs at Nodejs for web API
